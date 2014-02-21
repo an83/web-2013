@@ -1,0 +1,14 @@
+.slides #intro img{
+	width:500px;
+	vertical-align: middle;
+}
+
+.slides img.icon{
+	border: none;
+	background: none;
+	box-shadow: none;
+	margin: 0;
+	width: 30px;
+	height: 30px;
+	vertical-align: middle;
+}

